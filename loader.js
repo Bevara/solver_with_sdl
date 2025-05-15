@@ -309,9 +309,7 @@
               // convert ANSI colors to HTML
               text = ansiHTML(text);
 
-              if (GPAC.no_log)
-                console.log(text);
-              else if (element) {
+              if (element) {
                 element.innerHTML += text + "<br>";
                 element.scrollTop = element.scrollHeight; // focus on bottom
               }
@@ -375,11 +373,6 @@
       register_fns.push("_resample_register");
       register_fns.push("_compositor_register");
 
-      let vbench = false;
-      if (m.data.vbench != null) {
-        vbench = true;
-      }
-
       if (m.data.src) {
         register_fns.push("_fin_register");
         const src = m.data.src;
@@ -401,20 +394,20 @@
         register_fns.push("_fout_register");
         args.push("-o");
         args.push(m.data.dst);
-      } else if (vbench == false){
+      } else if (m.data.vbench == false){
         register_fns.push("_aout_register");
         register_fns.push("_vout_register");
 
-        if (vbench){
-          args.push("vout:!vsync");
-          args.push("-stats");
-        }if (m.data.width != null && m.data.height != null) {
+        if (m.data.width != null && m.data.height != null) {
           args.push("vout:wsize=" + m.data.width + "x" + m.data.height);
           args.push("aout");
         } else {
           args.push("vout");
           args.push("aout");
         }
+      }else{
+        register_fns.push("_vout_register");
+        args.push("vout:!vsync");
       }
 
       if (m.data.useWebcodec) {
