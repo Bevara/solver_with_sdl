@@ -410,12 +410,6 @@
         args.push("vout:!vsync");
       }
 
-      if (m.data.useWebcodec) {
-        register_fns.push("_wcdec_register");
-        register_fns.push("_wcenc_register");
-        register_fns.push("_webgrab_register");
-      }
-
       register_fns = register_fns.concat(Object.keys(module).filter(x => x.startsWith("dynCall_") && x.endsWith("_register")));
 
       if (m.data.showStats != null) {

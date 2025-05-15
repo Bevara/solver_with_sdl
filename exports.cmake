@@ -20,6 +20,10 @@ SET(PTHREADS
     '_logs_mx'
 )
 
+SET(COMPOSITOR
+   '_gf_sc_check_sys_frame'
+)
+
 SET(STDLIB
     '_vsnprintf'
     '_sprintf'
@@ -119,6 +123,7 @@ SET(SOLVER
 
 SET(EXTERNAL_FN
     ${GPAC}
+    ${COMPOSITOR}
     ${EMSCRIPTEN}
     ${SOLVER}
     ${PTHREADS}
