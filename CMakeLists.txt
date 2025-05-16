@@ -4,6 +4,7 @@ set (GPAC_LOCATION ${THIRD_PARTIES}/gpac)
 set (GPAC_BINARIES ${THIRD_PARTIES_BINARIES}/gpac_minimal)
 
 set(VERSION "1")
+
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_FLAGS "-O3 -Wall -Wextra")
 set(CMAKE_C_FLAGS "-O3 -Wall -Wextra")
@@ -20,6 +21,7 @@ SET(solver_with_sdl_SRC
   stats.c
   gpac.c
   gpac_help.c
+  compositor_tools.c
 )
 
 SET(EXTERNAL_RUNTIME

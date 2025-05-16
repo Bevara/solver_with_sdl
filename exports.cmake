@@ -22,6 +22,7 @@ SET(PTHREADS
 
 SET(COMPOSITOR
    '_gf_sc_check_sys_frame'
+   '_gf_input_sensor_setup_object'
 )
 
 SET(STDLIB
@@ -106,6 +107,8 @@ SET(STDLIB
     '_fmemopen'
     '_fread'
     '_fclose'
+    '_fiprintf'
+    '_fputc'
 )
 
 SET(EMSCRIPTEN
